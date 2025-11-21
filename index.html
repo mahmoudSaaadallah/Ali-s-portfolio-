@@ -16,6 +16,11 @@
         --secondary-color: #48cae4; /* Cyan */
         --text-dark: #03045e;
         --bg-light: #f4f7f8;
+
+        /* New Dark Mode Variables */
+        --dark-bg-main: #121212;
+        --dark-bg-card: #1e1e1e;
+        --dark-text-main: #e0e0e0;
       }
 
       /* Applying custom colors to Tailwind classes */
@@ -121,9 +126,65 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         border: 8px solid var(--primary-color);
       }
+
+      /* --- DARK MODE STYLES ADDED HERE --- */
+      html.dark body {
+        background-color: var(--dark-bg-main);
+        color: var(--dark-text-main);
+      }
+
+      /* Override custom color classes for dark mode */
+      html.dark .dark-text {
+        color: var(--dark-text-main);
+      }
+      html.dark .light-bg {
+        background-color: var(--dark-bg-card) !important;
+      }
+      html.dark .bg-white {
+        background-color: var(--dark-bg-card) !important;
+      }
+
+      /* Text and Border colors in dark mode */
+      html.dark .text-gray-600,
+      html.dark .text-gray-700,
+      html.dark .text-gray-500 {
+        color: #b0b0b0;
+      }
+      html.dark .border-gray-200 {
+        border-color: #333;
+      }
+      html.dark .border-b {
+        border-color: #333;
+      }
+
+      /* Shadows for a dark theme */
+      html.dark .shadow-md,
+      html.dark .shadow-lg,
+      html.dark .shadow-xl,
+      html.dark .shadow-2xl {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5),
+          0 2px 4px -2px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Navbar adjustment in dark mode */
+      html.dark .shadow-md {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+      }
+      html.dark .bg-yellow-100 {
+        /* Conceptual Note background */
+        background-color: #3a3a00 !important;
+        color: #ffee00;
+      }
+      html.dark .text-yellow-600 {
+        color: #ffee00;
+      }
+      html.dark .border-b-4 {
+        border-color: var(--primary-color) !important;
+      }
+      /* --- END DARK MODE STYLES --- */
     </style>
   </head>
-  <body class="dark-text">
+  <body class="">
     <nav class="sticky top-0 z-50 bg-white shadow-md">
       <div
         class="container mx-auto flex flex-col md:flex-row justify-between items-center px-4 py-4 max-w-7xl">
@@ -132,44 +193,52 @@
           class="text-2xl font-bold dark-text transition duration-300 hover:text-gray-700"
           >Ali Khalil</a
         >
-        <ul
-          class="flex flex-wrap justify-center space-x-4 md:space-x-6 mt-3 md:mt-0 text-lg">
-          <li>
-            <a
-              href="#about"
-              class="dark-text hover:primary-text transition duration-300"
-              >About</a
-            >
-          </li>
-          <li>
-            <a
-              href="#education"
-              class="dark-text hover:primary-text transition duration-300"
-              >Education</a
-            >
-          </li>
-          <li>
-            <a
-              href="#tools"
-              class="dark-text hover:primary-text transition duration-300"
-              >Tools</a
-            >
-          </li>
-          <li>
-            <a
-              href="#projects"
-              class="dark-text hover:primary-text transition duration-300"
-              >Projects</a
-            >
-          </li>
-          <li>
-            <a
-              href="#contact"
-              class="dark-text hover:primary-text transition duration-300"
-              >Contact</a
-            >
-          </li>
-        </ul>
+        <div class="flex items-center space-x-4">
+          <ul
+            class="flex flex-wrap justify-center space-x-4 md:space-x-6 mt-3 md:mt-0 text-lg">
+            <li>
+              <a
+                href="#about"
+                class="dark-text hover:primary-text transition duration-300"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#education"
+                class="dark-text hover:primary-text transition duration-300"
+                >Education</a
+              >
+            </li>
+            <li>
+              <a
+                href="#tools"
+                class="dark-text hover:primary-text transition duration-300"
+                >Tools</a
+              >
+            </li>
+            <li>
+              <a
+                href="#projects"
+                class="dark-text hover:primary-text transition duration-300"
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="dark-text hover:primary-text transition duration-300"
+                >Contact</a
+              >
+            </li>
+          </ul>
+          <button
+            id="dark-mode-toggle"
+            aria-label="Toggle dark mode"
+            class="text-xl dark-text hover:primary-text transition duration-300 p-2 rounded-full mt-3 md:mt-0">
+            <i class="fas fa-moon" id="theme-icon"></i>
+          </button>
+        </div>
       </div>
     </nav>
 
@@ -653,7 +722,7 @@
                         "Follow us for more fun moments!"
                       </td>
                     </tr>
-                    <tr class="hover:bg-gray-50">
+                    <tr class="border-b hover:bg-gray-50">
                       <td class="p-3" data-label="Day">Day 6</td>
                       <td class="p-3" data-label="Platform">
                         <span
@@ -667,7 +736,7 @@
                       </td>
                       <td class="p-3" data-label="Objective">
                         <span
-                          class="bg-orange-100 text-orange-700 px-2 py-1 rounded-full text-xs font-semibold"
+                          class="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs font-semibold"
                           >Consideration</span
                         >
                       </td>
@@ -681,26 +750,30 @@
               </div>
             </div>
 
-            <div class="visual-identity-section-enhanced">
+            <div class="visual-identity-section">
+              <h4 class="text-2xl font-bold dark-text border-b pb-2 mb-4">
+                <i class="fas fa-palette mr-2"></i> Visual Identity &amp; Brand
+                Assets
+              </h4>
+              <p class="text-gray-700 mb-6">
+                Complete brand identity system including logo design, staff
+                uniforms, packaging, signage, and marketing materials showcasing
+                the café's warm, artisan aesthetic.
+              </p>
               <div
-                class="slideshow-container relative w-full bg-black rounded-lg shadow-xl">
-                <h4
-                  class="identity-heading text-xl md:text-2xl font-bold pt-4 text-white text-center">
-                  <i class="fas fa-palette mr-2"></i> Visual Identity &amp;
+                class="slideshow-container relative w-full bg-gray-100 rounded-lg shadow-xl overflow-hidden">
+                <h5
+                  class="platform-heading text-xl font-bold pt-4 text-black text-center dark:text-white dark:bg-black">
                   Brand Assets
-                </h4>
-                <p
-                  class="identity-description text-sm text-gray-300 text-center mb-4 px-4">
-                  Complete brand identity system showcasing the warm, artisan
-                  aesthetic.
-                </p>
+                </h5>
                 <div class="slideshow pt-4" id="identity-slideshow">
                   <div class="slide active">
                     <img
                       src="images/uniform.jpg.png"
                       alt="Staff Uniforms - Branded Apparel"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Staff Uniforms - Branded Apparel
                     </p>
                   </div>
@@ -709,7 +782,8 @@
                       src="images/cofee makr.jpg.png"
                       alt="Latte Art & Coffee Preparation"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Latte Art & Coffee Preparation
                     </p>
                   </div>
@@ -718,7 +792,8 @@
                       src="images/roadsd.jpg.png"
                       alt="Billboard Advertising"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Billboard Advertising
                     </p>
                   </div>
@@ -727,7 +802,8 @@
                       src="images/ditination.jpg.png"
                       alt="Café Exterior Storefront"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Café Exterior Storefront
                     </p>
                   </div>
@@ -736,7 +812,8 @@
                       src="images/paletging.jpg.png"
                       alt="Logo & Brand Guidelines"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Logo & Brand Guidelines
                     </p>
                   </div>
@@ -745,7 +822,8 @@
                       src="images/packetging.jpg.png"
                       alt="Packaging Design - Coffee Cups"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Packaging Design - Coffee Cups
                     </p>
                   </div>
@@ -754,7 +832,8 @@
                       src="images/bakary.jpg.png"
                       alt="Fresh Bread Display"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Fresh Bread Display
                     </p>
                   </div>
@@ -763,16 +842,18 @@
                       src="images/inside.jpg.png"
                       alt="Interior Café Ambiance"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Interior Café Ambiance
                     </p>
                   </div>
                   <div class="slide">
                     <img
-                      src="images/products.jpg.png"
+                      src="images/product2.jpg.png"
                       alt="Croissant & Pastry Selection"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Croissant & Pastry Selection
                     </p>
                   </div>
@@ -781,7 +862,8 @@
                       src="images/happywithdrink.jpg.png"
                       alt="Customer Coffee Experience"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Customer Coffee Experience
                     </p>
                   </div>
@@ -790,7 +872,8 @@
                       src="images/focus.jpg.png"
                       alt="Working Café Atmosphere"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Working Café Atmosphere
                     </p>
                   </div>
@@ -799,7 +882,8 @@
                       src="images/identityview.jpg.png"
                       alt="Social Media Grid Layout"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Social Media Grid Layout
                     </p>
                   </div>
@@ -808,52 +892,18 @@
                       src="images/LOGO.jpg.png"
                       alt="Brand Identity Overview"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Brand Identity Overview
                     </p>
                   </div>
                   <div class="slide">
                     <img
-                      src="images/paletging.jpg.png"
-                      alt="Packaging Applications"
+                      src="images/products.jpg.png"
+                      alt="Product Photography (Social)"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Packaging Applications
-                    </p>
-                  </div>
-                  <div class="slide">
-                    <img
-                      src="images/workspase.jpg.png"
-                      alt="Café Interior Design"
-                      class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Café Interior Design
-                    </p>
-                  </div>
-                  <div class="slide">
-                    <img
-                      src="images/sitting.jpg.png"
-                      alt="Coffee & Croissant Pairing"
-                      class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Coffee & Croissant Pairing
-                    </p>
-                  </div>
-                  <div class="slide">
-                    <img
-                      src="images/sitting2.jpg.png"
-                      alt="Outdoor Seating Area"
-                      class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Seating Area
-                    </p>
-                  </div>
-                  <div class="slide">
-                    <img
-                      src="images/instagramover.jpg.png"
-                      alt="Product Photography"
-                      class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Product Photography (Social)
                     </p>
                   </div>
@@ -862,7 +912,8 @@
                       src="images/workperfectly.jpg.png"
                       alt="Customer Moments"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Customer Moments
                     </p>
                   </div>
@@ -871,7 +922,8 @@
                       src="images/menu.jpg.png"
                       alt="Marketing Collateral"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Marketing Collateral
                     </p>
                   </div>
@@ -880,7 +932,8 @@
                       src="images/product2.jpg.png"
                       alt="Brand Touchpoints"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Brand Touchpoints (Social Poll)
                     </p>
                   </div>
@@ -889,96 +942,95 @@
                       src="images/LOGO.jpg.png"
                       alt="Complete Brand System"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Complete Brand System
                     </p>
                   </div>
-
-                  <button
-                    class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
-                    onclick="changeSlide('identity-slideshow', -1)">
-                    ❮
-                  </button>
-                  <button
-                    class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
-                    onclick="changeSlide('identity-slideshow', 1)">
-                    ❯
-                  </button>
                 </div>
+
+                <button
+                  class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
+                  onclick="changeSlide('identity-slideshow', -1)">
+                  ❮
+                </button>
+                <button
+                  class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
+                  onclick="changeSlide('identity-slideshow', 1)">
+                  ❯
+                </button>
               </div>
             </div>
 
-            <div class="skills-demonstrated">
-              <h4 class="text-2xl font-bold dark-text border-b pb-2 mb-4">
-                Skills Demonstrated
+            <div class="target-audience-section space-y-4">
+              <h4 class="text-2xl font-bold dark-text border-b pb-2">
+                👥 Target Audience
               </h4>
-              <ul
-                class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700 list-none">
-                <li>
-                  <i class="fas fa-chart-pie primary-text mr-2"></i> Market
-                  Research &amp; Competitive Analysis
-                </li>
-                <li>
-                  <i class="fas fa-sitemap primary-text mr-2"></i> Brand
-                  Strategy &amp; Positioning
-                </li>
-                <li>
-                  <i class="fas fa-tv primary-text mr-2"></i> Social Media &amp;
-                  Content Strategy
-                </li>
-                <li>
-                  <i class="fas fa-map-marker-alt primary-text mr-2"></i>
-                  Strategic Location Choice
-                </li>
-                <li>
-                  <i class="fas fa-camera-retro primary-text mr-2"></i> Visual
-                  Content Creation &amp; Curation
-                </li>
-                <li>
-                  <i class="fas fa-desktop primary-text mr-2"></i> Digital Ad
-                  Creative Direction
-                </li>
-              </ul>
-            </div>
-
-            <div class="text-center pt-4">
-              <a
-                href="#"
-                class="btn primary-bg text-white px-8 py-3 rounded-lg font-semibold border-2 border-transparent hover:opacity-90 transition duration-300">
-                View Full Case Study PDF
-              </a>
+              <div
+                class="personas-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div
+                  class="bg-white p-4 rounded-xl shadow-lg border-l-4 border-primary-color dark:bg-gray-800">
+                  <h5 class="font-bold secondary-text text-lg mb-1">
+                    Persona 1: The Remote Worker (Productivity)
+                  </h5>
+                  <p class="text-sm text-gray-700 dark:text-gray-400">
+                    Needs reliable Wi-Fi, comfortable seating, and quality
+                    coffee to power a full workday.
+                  </p>
+                </div>
+                <div
+                  class="bg-white p-4 rounded-xl shadow-lg border-l-4 border-secondary-color dark:bg-gray-800">
+                  <h5 class="font-bold secondary-text text-lg mb-1">
+                    Persona 2: The Morning Commuter (Convenience)
+                  </h5>
+                  <p class="text-sm text-gray-700 dark:text-gray-400">
+                    Needs a fast, high-quality grab-and-go option (coffee +
+                    fresh pastry) on the way to work.
+                  </p>
+                </div>
+                <div
+                  class="bg-white p-4 rounded-xl shadow-lg border-l-4 border-accent-color dark:bg-gray-800">
+                  <h5 class="font-bold secondary-text text-lg mb-1">
+                    Persona 3: The Socialite (Experience)
+                  </h5>
+                  <p class="text-sm text-gray-700 dark:text-gray-400">
+                    Seeks a stylish, instagrammable setting for social meetups,
+                    prioritizing atmosphere and photo-worthy food/drinks.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
           <div class="bg-white p-6 md:p-10 rounded-xl shadow-2xl space-y-8">
             <div class="project-header text-center">
               <h3 class="text-3xl font-extrabold primary-text">
-                Project 2: Fashion Erra
+                Project 2: FASHION ERRA
               </h3>
               <p class="text-xl font-semibold dark-text">
-                Advanced Media Buying Strategy &amp; Analytics
+                E-Commerce Media Buying Strategy
               </p>
               <span class="text-sm text-gray-500"
-                >Smart Electronics Dropshipping | Egypt E-Commerce</span
+                >Online Retail | Egypt Market</span
               >
               <p class="text-lg font-bold mt-2 secondary-text">
-                Role: Media Buying Strategist &amp; Analyst
+                Role: Media Buyer &amp; Performance Analyst
               </p>
             </div>
 
             <div class="project-summary max-w-4xl mx-auto space-y-4">
               <h4 class="text-2xl font-bold dark-text border-b pb-2">
-                Overview
+                The Challenge &amp; Strategy
               </h4>
               <p class="text-gray-700">
-                A comprehensive media buying strategy for a smart electronics
-                dropshipping business targeting Egypt's 9 billion USD e-commerce
-                market. The strategy focuses on achieving **50,000 EGP monthly
-                sales** with a **7,000 EGP advertising budget**.
+                Scaling a new e-commerce fashion brand with a limited budget in
+                a highly competitive market. The strategy was
+                <strong>"Full-Funnel Optimization"</strong>, focusing on precise
+                A/B testing and GTM integration for accurate data flow.
               </p>
             </div>
 
-            <div class="highlights-section">
+            <div class="metrics-section">
               <h4 class="text-2xl font-bold dark-text border-b pb-2 mb-4">
                 Key Highlights
               </h4>
@@ -1012,92 +1064,13 @@
                   class="highlight-box light-bg p-3 rounded-lg text-center shadow-inner">
                   <i class="fas fa-bullseye primary-text text-2xl mb-1"></i>
                   <p class="text-xs text-gray-500">Target ROAS</p>
-                  <p class="text-lg font-bold dark-text">12x</p>
+                  <p class="text-lg font-bold dark-text">3.5x</p>
                 </div>
               </div>
             </div>
 
-            <div class="personas-section">
-              <h4 class="text-2xl font-bold dark-text border-b pb-2 mb-4">
-                Buyer Personas
-              </h4>
-              <div
-                class="personas-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div
-                  class="persona-card light-bg p-4 rounded-lg shadow-md border-t-4 border-primary-color">
-                  <div class="persona-header mb-2">
-                    <i class="fas fa-user-graduate primary-text mr-2"></i>
-                    <h5 class="font-bold inline dark-text">
-                      Budget-Conscious Student
-                    </h5>
-                  </div>
-                  <p class="text-sm text-gray-700">
-                    <strong>Age:</strong> 18-24
-                  </p>
-                  <p class="text-sm text-gray-700">
-                    <strong>AOV:</strong> 300-500 EGP
-                  </p>
-                  <p class="text-xs italic mt-2 secondary-text">
-                    Limited budget, wants trendy tech
-                  </p>
-                </div>
-                <div
-                  class="persona-card light-bg p-4 rounded-lg shadow-md border-t-4 border-primary-color">
-                  <div class="persona-header mb-2">
-                    <i class="fas fa-briefcase primary-text mr-2"></i>
-                    <h5 class="font-bold inline dark-text">
-                      Working Professional
-                    </h5>
-                  </div>
-                  <p class="text-sm text-gray-700">
-                    <strong>Age:</strong> 28-35
-                  </p>
-                  <p class="text-sm text-gray-700">
-                    <strong>AOV:</strong> 600-900 EGP
-                  </p>
-                  <p class="text-xs italic mt-2 secondary-text">
-                    Needs reliable products for work-life balance
-                  </p>
-                </div>
-                <div
-                  class="persona-card light-bg p-4 rounded-lg shadow-md border-t-4 border-primary-color">
-                  <div class="persona-header mb-2">
-                    <i class="fas fa-laptop-code primary-text mr-2"></i>
-                    <h5 class="font-bold inline dark-text">
-                      Tech-Savvy Manager
-                    </h5>
-                  </div>
-                  <p class="text-sm text-gray-700">
-                    <strong>Age:</strong> 30-38
-                  </p>
-                  <p class="text-sm text-gray-700">
-                    <strong>AOV:</strong> 1,000-1,500 EGP
-                  </p>
-                  <p class="text-xs italic mt-2 secondary-text">
-                    Needs premium quality for productivity
-                  </p>
-                </div>
-                <div
-                  class="persona-card light-bg p-4 rounded-lg shadow-md border-t-4 border-primary-color">
-                  <div class="persona-header mb-2">
-                    <i class="fas fa-video primary-text mr-2"></i>
-                    <h5 class="font-bold inline dark-text">Content Creator</h5>
-                  </div>
-                  <p class="text-sm text-gray-700">
-                    <strong>Age:</strong> 20-26
-                  </p>
-                  <p class="text-sm text-gray-700">
-                    <strong>AOV:</strong> 400-700 EGP
-                  </p>
-                  <p class="text-xs italic mt-2 secondary-text">
-                    Wants stylish accessories for social media
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="campaign-execution-section space-y-8">
-              <h4 class="text-2xl font-bold dark-text border-b pb-2 mb-4">
+            <div class="execution-section space-y-8">
+              <h4 class="text-2xl font-bold dark-text border-b pb-2">
                 Campaign Execution Across Platforms
               </h4>
               <p class="text-gray-700">
@@ -1117,7 +1090,8 @@
                       src="images/Campiain.png"
                       alt="Facebook Campaign Settings"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Facebook Campaign Settings - Objective, Budget &amp;
                       Schedule
                     </p>
@@ -1127,7 +1101,8 @@
                       src="images/Ad Set 1.png"
                       alt="Ad Set 1 Configuration"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Ad Set Configuration - Targeting, Placement &amp; Budget
                     </p>
                   </div>
@@ -1136,7 +1111,8 @@
                       src="images/Ad Set 2.png"
                       alt="Ad Set 2 Configuration"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Additional Ad Set - Alternative Audience Targeting
                     </p>
                   </div>
@@ -1145,8 +1121,9 @@
                       src="images/ad1.png"
                       alt="Ad Creative 1"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Ad Creative - Product Showcase &amp; Copy
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
+                      Ad Creative Example - Image Ad with Strong CTA
                     </p>
                   </div>
                   <div class="slide">
@@ -1154,21 +1131,22 @@
                       src="images/ad2.png"
                       alt="Ad Creative 2"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Ad Creative - Alternative Design &amp; Messaging
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
+                      Ad Creative Example - Carousel Ad (Product Highlights)
                     </p>
                   </div>
-                  <button
-                    class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
-                    onclick="changeSlide('facebook-slideshow', -1)">
-                    ❮
-                  </button>
-                  <button
-                    class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
-                    onclick="changeSlide('facebook-slideshow', 1)">
-                    ❯
-                  </button>
                 </div>
+                <button
+                  class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
+                  onclick="changeSlide('facebook-slideshow', -1)">
+                  ❮
+                </button>
+                <button
+                  class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
+                  onclick="changeSlide('facebook-slideshow', 1)">
+                  ❯
+                </button>
               </div>
 
               <div
@@ -1181,38 +1159,50 @@
                   <div class="slide active">
                     <img
                       src="images/tiktok campain.png"
-                      alt="TikTok Campaign Overview"
+                      alt="TikTok Campaign Settings"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      TikTok Campaign Setup - Objective, Budget &amp;
-                      Optimization
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
+                      TikTok Campaign - Objective &amp; Daily Budget Setup
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/tiktok adset 1.png"
+                      alt="Ad Group Configuration"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
+                      Ad Group Settings - Placement, Targeting, &amp; Bid Type
                     </p>
                   </div>
                   <div class="slide">
                     <img
                       src="images/tiktok ad1.png"
-                      alt="TikTok Ad Group Configuration"
+                      alt="Ad Creative 1"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Ad Group Configuration - Audience, Placements &amp;
-                      Bidding
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
+                      TikTok Ad Creative - Engaging Vertical Video Example
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/tiktok adset2.png"
+                      alt="Ad Creative 2"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
+                      TikTok Ad Creative - Interactive Add-ons
                     </p>
                   </div>
                   <div class="slide">
                     <img
                       src="images/tiktok ad2.png"
-                      alt="TikTok Ad Creative 1"
+                      alt="Ad Creative 2"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      TikTok Ad Creative - Ad Setup &amp; Identity
-                    </p>
-                  </div>
-                  <div class="slide">
-                    <img
-                      src="images/tiktok ad2.png"
-                      alt="TikTok Ad Creative 2"
-                      class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       TikTok Ad Creative - Interactive Add-ons
                     </p>
                   </div>
@@ -1221,7 +1211,8 @@
                       class="w-full h-[450px] flex items-center justify-center bg-gray-800 text-white text-lg rounded-t-lg">
                       <i class="fab fa-tiktok mr-2"></i> Creative 3 Placeholder
                     </div>
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Creative Optimization Example
                     </p>
                   </div>
@@ -1231,21 +1222,22 @@
                       <i class="fas fa-chart-line mr-2"></i>
                       Results/Optimization Placeholder
                     </div>
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Performance Results &amp; Optimization Strategy
                     </p>
                   </div>
-                  <button
-                    class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
-                    onclick="changeSlide('tiktok-slideshow', -1)">
-                    ❮
-                  </button>
-                  <button
-                    class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
-                    onclick="changeSlide('tiktok-slideshow', 1)">
-                    ❯
-                  </button>
                 </div>
+                <button
+                  class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
+                  onclick="changeSlide('tiktok-slideshow', -1)">
+                  ❮
+                </button>
+                <button
+                  class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
+                  onclick="changeSlide('tiktok-slideshow', 1)">
+                  ❯
+                </button>
               </div>
 
               <div
@@ -1258,86 +1250,55 @@
                   <div class="slide active">
                     <img
                       src="images/1.png"
-                      alt="Google Ads Campaign Settings"
+                      alt="Google Campaign Overview"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Google Ads Campaign - Networks, Locations &amp; Languages
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
+                      Performance Max (PMax) Campaign - Goals &amp; Bidding
                     </p>
                   </div>
                   <div class="slide">
                     <img
                       src="images/2.png"
-                      alt="Bidding Strategy"
+                      alt="Asset Groups"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Bidding Strategy - Customer Acquisition Focus
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
+                      Asset Groups - Targeting and Creative Upload
                     </p>
                   </div>
                   <div class="slide">
                     <img
                       src="images/3.png"
-                      alt="Budget Configuration"
+                      alt="Responsive Search Ads"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Daily Budget Setup
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
+                      Responsive Search Ad Creation - Headlines &amp;
+                      Descriptions
                     </p>
                   </div>
                   <div class="slide">
                     <img
                       src="images/4.png"
-                      alt="Keyword & Asset Generation"
+                      alt="Sitelink Extensions"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Keyword & Asset Generation - URL and Keyword Creation
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
+                      Ad Extension Creation - Sitelinks &amp; Assets
                     </p>
                   </div>
-                  <div class="slide">
-                    <img
-                      src="images/5.png"
-                      alt="Ad Group Keywords"
-                      class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Ad Group Keyword Setup
-                    </p>
-                  </div>
-                  <div class="slide">
-                    <img
-                      src="images/6.png"
-                      alt="Ad Groups Overview"
-                      class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Ad Groups - Keywords &amp; Assets Overview
-                    </p>
-                  </div>
-                  <div class="slide">
-                    <img
-                      src="images/7.png"
-                      alt="Ad Creation Headlines"
-                      class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Ad Creation - Headlines &amp; Descriptions
-                    </p>
-                  </div>
-                  <div class="slide">
-                    <img
-                      src="images/8.png"
-                      alt="Ad Assets Sitelinks"
-                      class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Ad Creation - Sitelinks &amp; Assets
-                    </p>
-                  </div>
-                  <button
-                    class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
-                    onclick="changeSlide('google-slideshow', -1)">
-                    ❮
-                  </button>
-                  <button
-                    class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
-                    onclick="changeSlide('google-slideshow', 1)">
-                    ❯
-                  </button>
                 </div>
+                <button
+                  class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
+                  onclick="changeSlide('google-slideshow', -1)">
+                  ❮
+                </button>
+                <button
+                  class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
+                  onclick="changeSlide('google-slideshow', 1)">
+                  ❯
+                </button>
               </div>
 
               <div
@@ -1353,91 +1314,99 @@
                       src="images/snapchat campaign.png"
                       alt="Snapchat Campaign Overview"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Snapchat Campaign - FASHION ERRA SALES Campaign Details
                     </p>
                   </div>
                   <div class="slide">
                     <img
-                      src="images/snapchat ad1.png"
+                      src="images/snapchat Ad Set 1.png"
                       alt="Ad Set 1 Configuration"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Ad Set Setup - Audience, Budget &amp; Timeline
                     </p>
                   </div>
                   <div class="slide">
                     <img
-                      src="images/snapchat ad 2.png"
-                      alt="Ad Set 2 Configuration"
+                      src="images/snapchat ad1.png"
+                      alt="Ad Creative 1"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Ad Set Setup - Location &amp; Demographics
-                    </p>
-                  </div>
-                  <div class="slide">
-                    <img
-                      src="images/snapchat Ad Set 1.png"
-                      alt="Snapchat Ad Creative 1"
-                      class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Snapchat Ad Creative - Smart Watch X10
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
+                      Snapchat Ad Creative - Collection Ad Format
                     </p>
                   </div>
                   <div class="slide">
                     <img
                       src="images/snapchat ad set 2.png"
-                      alt="Snapchat Ad Creative 2"
+                      alt="Ad Creative 2"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Snapchat Ad Creative - AirPods with Details
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
+                      Snapchat Ad Creative - Dynamic Product Ad Example
                     </p>
                   </div>
-                  <button
-                    class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
-                    onclick="changeSlide('snapchat-slideshow', -1)">
-                    ❮
-                  </button>
-                  <button
-                    class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
-                    onclick="changeSlide('snapchat-slideshow', 1)">
-                    ❯
-                  </button>
+                  <div class="slide">
+                    <img
+                      src="images/snapchat ad 2.png"
+                      alt="Ad Creative 2"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
+                      Snapchat Ad Creative - Dynamic Product Ad Example
+                    </p>
+                  </div>
                 </div>
+                <button
+                  class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
+                  onclick="changeSlide('snapchat-slideshow', -1)">
+                  ❮
+                </button>
+                <button
+                  class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
+                  onclick="changeSlide('snapchat-slideshow', 1)">
+                  ❯
+                </button>
               </div>
+            </div>
+
+            <div class="data-tracking-section space-y-8">
+              <h4 class="text-2xl font-bold dark-text border-b pb-2">
+                📊 Data Tracking &amp; GTM Integration
+              </h4>
+              <p class="text-gray-700">
+                Implementation of Google Tag Manager (GTM) to ensure accurate
+                conversion tracking and data transmission to ad platforms.
+              </p>
 
               <div
                 class="slideshow-container relative w-full bg-black rounded-lg shadow-xl">
                 <h5
                   class="platform-heading text-xl font-bold pt-4 text-white text-center">
-                  <i class="fas fa-chart-line mr-2"></i> Analytics &amp;
-                  Tracking
+                  <i class="fas fa-tags mr-2"></i> Google Tag Manager Setup
                 </h5>
                 <div class="slideshow pt-4" id="gtm-slideshow">
                   <div class="slide active">
                     <img
                       src="images/gtm.png"
-                      alt="Google Tag Manager Workspace"
-                      class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      GTM Workspace - Tags, Triggers &amp; Variables
-                    </p>
-                  </div>
-                  <div class="slide">
-                    <img
-                      src="images/gtm.png"
                       alt="Tags Configuration"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
-                      Tags Setup - Facebook, TikTok &amp; Google Ads
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
+                      Tags Setup - Facebook Pixel, Google Ads Conversion, &amp;
+                      GA4
                     </p>
                   </div>
                   <div class="slide">
                     <img
-                      src="images/gtm.png"
-                      alt="Custom Variables"
+                      src="images/GA.png"
+                      alt="Variables Configuration"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Variables Configuration - Data Layer &amp; Built-in
                       Variables
                     </p>
@@ -1447,22 +1416,23 @@
                       src="images/gtm.png"
                       alt="Triggers Configuration"
                       class="slide-img w-full h-auto mx-auto object-contain" />
-                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                    <p
+                      class="slide-caption bg-black text-white p-3 text-sm text-center">
                       Triggers Setup - Button Clicks, Page Views &amp; Custom
                       Events
                     </p>
                   </div>
-                  <button
-                    class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
-                    onclick="changeSlide('gtm-slideshow', -1)">
-                    ❮
-                  </button>
-                  <button
-                    class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
-                    onclick="changeSlide('gtm-slideshow', 1)">
-                    ❯
-                  </button>
                 </div>
+                <button
+                  class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
+                  onclick="changeSlide('gtm-slideshow', -1)">
+                  ❮
+                </button>
+                <button
+                  class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
+                  onclick="changeSlide('gtm-slideshow', 1)">
+                  ❯
+                </button>
               </div>
             </div>
 
@@ -1476,87 +1446,24 @@
               </p>
               <div
                 class="funnel-visualization flex flex-wrap justify-center items-center text-center text-sm md:text-base font-semibold space-y-2 md:space-y-0">
-                <div
-                  class="funnel-stage bg-primary-color text-white px-4 py-2 rounded-lg m-1">
-                  Impression
+                <div class="funnel-step primary-bg text-white p-3 rounded-lg">
+                  1000 Impressions
                 </div>
-                <div class="funnel-arrow text-primary-color mx-2">↓</div>
-                <div
-                  class="funnel-stage bg-primary-color text-white px-4 py-2 rounded-lg m-1">
-                  Click
+                <i class="fas fa-chevron-right mx-2 primary-text"></i>
+                <div class="funnel-step secondary-bg text-white p-3 rounded-lg">
+                  200 Visitors (20% CTR)
                 </div>
-                <div class="funnel-arrow text-primary-color mx-2">↓</div>
-                <div
-                  class="funnel-stage bg-primary-color text-white px-4 py-2 rounded-lg m-1">
-                  Product View
+                <i class="fas fa-chevron-right mx-2 primary-text"></i>
+                <div class="funnel-step primary-bg text-white p-3 rounded-lg">
+                  10 Added to Cart (5% ATC)
                 </div>
-                <div class="funnel-arrow text-primary-color mx-2">↓</div>
-                <div
-                  class="funnel-stage bg-secondary-color text-white px-4 py-2 rounded-lg m-1">
-                  Add to Cart
+                <i class="fas fa-chevron-right mx-2 primary-text"></i>
+                <div class="funnel-step secondary-bg text-white p-3 rounded-lg">
+                  5 Initiated Checkout (2.5% CR)
                 </div>
-                <div class="funnel-arrow text-primary-color mx-2">↓</div>
-                <div
-                  class="funnel-stage bg-secondary-color text-white px-4 py-2 rounded-lg m-1">
-                  Checkout
-                </div>
-                <div class="funnel-arrow text-primary-color mx-2">↓</div>
-                <div
-                  class="funnel-stage final bg-green-600 text-white px-4 py-2 rounded-lg m-1">
-                  Purchase
-                </div>
-              </div>
-            </div>
-
-            <div class="metrics-section">
-              <h4 class="text-2xl font-bold dark-text border-b pb-2 mb-4">
-                Key Metrics
-              </h4>
-              <div
-                class="metrics-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                <div
-                  class="metric-box light-bg p-3 rounded-lg text-center shadow-inner">
-                  <p class="font-bold dark-text">CPM</p>
-                  <p class="primary-text font-semibold">20-40 EGP</p>
-                  <span class="text-xs text-gray-500"
-                    >Cost per 1,000 impressions</span
-                  >
-                </div>
-                <div
-                  class="metric-box light-bg p-3 rounded-lg text-center shadow-inner">
-                  <p class="font-bold dark-text">CPC</p>
-                  <p class="primary-text font-semibold">0.5-1.5 EGP</p>
-                  <span class="text-xs text-gray-500">Cost per Click</span>
-                </div>
-                <div
-                  class="metric-box light-bg p-3 rounded-lg text-center shadow-inner">
-                  <p class="font-bold dark-text">CPA</p>
-                  <p class="primary-text font-semibold">20-40 EGP</p>
-                  <span class="text-xs text-gray-500"
-                    >Cost per Acquisition</span
-                  >
-                </div>
-                <div
-                  class="metric-box light-bg p-3 rounded-lg text-center shadow-inner">
-                  <p class="font-bold dark-text">CTR</p>
-                  <p class="primary-text font-semibold">2-4%</p>
-                  <span class="text-xs text-gray-500">Click-through Rate</span>
-                </div>
-                <div
-                  class="metric-box light-bg p-3 rounded-lg text-center shadow-inner">
-                  <p class="font-bold dark-text">Product View Rate</p>
-                  <p class="primary-text font-semibold">30-50%</p>
-                  <span class="text-xs text-gray-500"
-                    >Visitors who view products</span
-                  >
-                </div>
-                <div
-                  class="metric-box light-bg p-3 rounded-lg text-center shadow-inner">
-                  <p class="font-bold dark-text">Conversion Rate</p>
-                  <p class="primary-text font-semibold">2-3%</p>
-                  <span class="text-xs text-gray-500"
-                    >Overall conversion rate</span
-                  >
+                <i class="fas fa-chevron-right mx-2 primary-text"></i>
+                <div class="funnel-step primary-bg text-white p-3 rounded-lg">
+                  2.5 Purchases (Final CR)
                 </div>
               </div>
             </div>
@@ -1601,85 +1508,42 @@
                   <div class="roadmap-content ml-4">
                     <p class="font-semibold dark-text">Phase: Scaling</p>
                     <p class="text-sm text-gray-700">
-                      Goal: Scale budget on winners only
+                      Goal: Scale winning ad sets while maintaining target ROAS
                     </p>
                   </div>
                 </div>
                 <div
                   class="roadmap-item flex items-start p-4 light-bg rounded-lg border-l-4 border-primary-color">
                   <div
-                    class="roadmap-week bg-primary-color text-white font-bold p-2 rounded-full flex-shrink-0 text-sm">
+                    class="roadmap-week primary-bg text-white font-bold p-2 rounded-full flex-shrink-0 text-sm">
                     Week 4
                   </div>
                   <div class="roadmap-content ml-4">
-                    <p class="font-semibold dark-text">
-                      Phase: Target Achievement
-                    </p>
+                    <p class="font-semibold dark-text">Phase: Analysis</p>
                     <p class="text-sm text-gray-700">
-                      Goal: Achieve 12x ROAS target
+                      Goal: Full post-launch analysis and long-term budget
+                      planning
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div class="skills-demonstrated">
-              <h4 class="text-2xl font-bold dark-text border-b pb-2 mb-4">
-                Skills Demonstrated
-              </h4>
-              <ul
-                class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700 list-none">
-                <li>
-                  <i class="fas fa-bullhorn primary-text mr-2"></i> Media Buying
-                  &amp; Budget Allocation
-                </li>
-                <li>
-                  <i class="fas fa-user-friends primary-text mr-2"></i> Buyer
-                  Persona Development
-                </li>
-                <li>
-                  <i class="fas fa-filter primary-text mr-2"></i> Conversion
-                  Funnel Optimization
-                </li>
-                <li>
-                  <i class="fas fa-shopping-cart primary-text mr-2"></i>
-                  E-commerce Strategy
-                </li>
-                <li>
-                  <i class="fas fa-chart-bar primary-text mr-2"></i> Data
-                  Analysis &amp; KPI Tracking
-                </li>
-                <li>
-                  <i class="fab fa-facebook primary-text mr-2"></i> Meta Ads
-                  Management
-                </li>
-              </ul>
-            </div>
-
-            <div class="text-center pt-4">
-              <a
-                href="#"
-                class="btn primary-bg text-white px-8 py-3 rounded-lg font-semibold border-2 border-transparent hover:opacity-90 transition duration-300">
-                View Full Strategy
-              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="py-20 border-b border-gray-200">
-      <div class="container mx-auto px-4 max-w-7xl text-center">
-        <h2 class="section-heading text-4xl font-bold dark-text mb-6">
-          Let's Drive Extraordinary Results Together.
+    <section id="contact" class="py-20 border-t border-gray-200">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <h2
+          class="text-center section-heading text-4xl font-bold dark-text mb-10">
+          Get In Touch
         </h2>
-        <p class="text-xl text-gray-700 mb-12">
-          I'm actively seeking opportunities to leverage smart strategy and AI
-          to unlock growth. Feel free to connect!
+        <p class="text-center text-lg text-gray-700 mb-12">
+          Ready to discuss your next marketing challenge? Let's connect.
         </p>
 
-        <div
-          class="contact-info-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div
             class="contact-item light-bg p-6 rounded-xl border-b-4 border-primary-color shadow-md transition duration-300 hover:shadow-lg">
             <i class="fas fa-envelope primary-text text-3xl mb-3"></i>
@@ -1690,7 +1554,6 @@
               alikhalil.marketer@gmail.com
             </a>
           </div>
-
           <div
             class="contact-item light-bg p-6 rounded-xl border-b-4 border-primary-color shadow-md transition duration-300 hover:shadow-lg">
             <i class="fas fa-phone-alt primary-text text-3xl mb-3"></i>
@@ -1701,23 +1564,15 @@
               01006597820
             </a>
           </div>
-
-          <div
-            class="contact-item light-bg p-6 rounded-xl border-b-4 border-primary-color shadow-md transition duration-300 hover:shadow-lg">
-            <i class="fas fa-map-marker-alt primary-text text-3xl mb-3"></i>
-            <h4 class="font-bold dark-text text-lg">Location</h4>
-            <p class="text-sm text-gray-700">Dakahlia, Egypt</p>
-          </div>
-
           <div
             class="contact-item light-bg p-6 rounded-xl border-b-4 border-primary-color shadow-md transition duration-300 hover:shadow-lg">
             <i class="fab fa-linkedin primary-text text-3xl mb-3"></i>
             <h4 class="font-bold dark-text text-lg">LinkedIn</h4>
             <a
-              href="https://www.linkedin.com/in/alimarketing/"
+              href="https://www.linkedin.com/in/alikhalil"
               target="_blank"
               class="primary-text text-sm hover:underline">
-              Connect on LinkedIn
+              /in/alikhalil
             </a>
           </div>
         </div>
@@ -1731,40 +1586,23 @@
       </div>
     </section>
 
-    <footer class="bg-dark-text text-gray-300 py-8">
+    <footer class="primary-bg text-white py-6">
       <div class="container mx-auto px-4 max-w-7xl text-center">
         <p>
-          &copy; <span id="current-year"></span> Ali Khalil | Digital Marketing
-          Specialist Portfolio
-        </p>
-        <p class="text-sm text-gray-500 mt-2">
-          Designed and built with passion using modern web technologies.
+          &copy; <span id="current-year"></span> Ali Khalil. All rights
+          reserved.
         </p>
       </div>
     </footer>
 
     <script>
-      // Slideshow functionality
+      // --- Slideshow Logic (Existing) ---
       function initSlideshows() {
-        // Include all slideshows from the projects section
-        const slideshowIds = [
-          "identity-slideshow",
-          "facebook-slideshow",
-          "tiktok-slideshow",
-          "google-slideshow",
-          "snapchat-slideshow",
-          "gtm-slideshow",
-        ];
-
-        slideshowIds.forEach((id) => {
-          const slideshow = document.getElementById(id);
-          if (slideshow) {
-            // Ensure the first slide is active on load
-            const slides = slideshow.querySelectorAll(".slide");
-            if (slides.length > 0) {
-              slides.forEach((s) => s.classList.remove("active"));
-              slides[0].classList.add("active");
-            }
+        // Find all slideshow containers and initialize the first slide
+        document.querySelectorAll(".slideshow").forEach((slideshow) => {
+          const slides = slideshow.querySelectorAll(".slide");
+          if (slides.length > 0) {
+            slides[0].classList.add("active");
           }
         });
       }
@@ -1792,6 +1630,50 @@
           slides[newIndex].classList.add("active");
         }
       }
+
+      // --- Dark Mode Toggle Logic (New) ---
+      const toggle = document.getElementById("dark-mode-toggle");
+      const html = document.documentElement;
+      const icon = document.getElementById("theme-icon");
+
+      // 1. Determine Initial Theme (Local Storage > System Preference > Default to Light)
+      function getInitialTheme() {
+        const storedTheme = localStorage.getItem("theme");
+        if (storedTheme) {
+          return storedTheme;
+        }
+        // Check system preference
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      }
+
+      // 2. Apply Theme and Update Icon
+      function applyTheme(theme) {
+        if (theme === "dark") {
+          html.classList.add("dark");
+          icon.classList.remove("fa-moon");
+          icon.classList.add("fa-sun");
+        } else {
+          html.classList.remove("dark");
+          icon.classList.remove("fa-sun");
+          icon.classList.add("fa-moon");
+        }
+        localStorage.setItem("theme", theme);
+      }
+
+      // 3. Toggle Handler
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          const currentTheme = html.classList.contains("dark")
+            ? "light"
+            : "dark";
+          applyTheme(currentTheme);
+        });
+      }
+
+      // Apply initial theme on page load
+      applyTheme(getInitialTheme());
 
       // Initialize on page load
       document.addEventListener("DOMContentLoaded", () => {
