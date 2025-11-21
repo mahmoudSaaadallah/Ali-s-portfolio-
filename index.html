@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ali Khalil - Junior Digital Marketing Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <style>
+      /* Custom Colors & Configuration to match the original style */
+      :root {
+        --primary-color: #0077b6; /* Blue */
+        --secondary-color: #48cae4; /* Cyan */
+        --text-dark: #03045e;
+        --bg-light: #f4f7f8;
+      }
+
+      /* Applying custom colors to Tailwind classes */
+      .primary-bg {
+        background-color: var(--primary-color);
+      }
+      .primary-text {
+        color: var(--primary-color);
+      }
+      .secondary-bg {
+        background-color: var(--secondary-color);
+      }
+      .secondary-text {
+        color: var(--secondary-color);
+      }
+      .dark-text {
+        color: var(--text-dark);
+      }
+      .light-bg {
+        background-color: var(--bg-light);
+      }
+
+      /* Custom Styles for aesthetic enhancements */
+      .kpi-box,
+      .highlight-box,
+      .metric-box {
+        border-bottom: 4px solid var(--secondary-color);
+      }
+
+      /* Custom Table Styling for responsiveness */
+      .content-calendar-table th,
+      .content-calendar-table td {
+        min-width: 100px; /* Ensure columns have minimum width */
+      }
+
+      /* Slideshow functionality - necessary overrides */
+      .slide {
+        display: none;
+        transition: opacity 0.5s ease-in-out;
+      }
+      .slide.active {
+        display: block;
+      }
+      .slide-img {
+        max-height: 450px;
+        object-fit: contain;
+      }
+      .slide-nav {
+        /* Positioning is handled by Tailwind classes, adding z-index for visibility */
+        z-index: 10;
+      }
+
+      /* Mobile Table Fix: Hide headers on small screens and use data-label (as in original CSS) */
+      @media (max-width: 768px) {
+        .content-calendar-table thead {
+          display: none;
+        }
+        .content-calendar-table,
+        .content-calendar-table tbody,
+        .content-calendar-table tr,
+        .content-calendar-table td {
+          display: block;
+          width: 100%;
+        }
+        .content-calendar-table tr {
+          margin-bottom: 1rem;
+          border-bottom: 2px solid #ddd;
+        }
+        .content-calendar-table td {
+          text-align: right;
+          padding-left: 50%; /* Space for the label */
+          position: relative;
+        }
+        .content-calendar-table td::before {
+          /* Display the label from the data-label attribute */
+          content: attr(data-label);
+          position: absolute;
+          left: 6px;
+          width: 45%;
+          padding-right: 10px;
+          white-space: nowrap;
+          font-weight: bold;
+          text-align: left;
+          color: var(--primary-color);
+        }
+      }
+
+      /* Custom H2 Underline */
+      .section-heading {
+        position: relative;
+      }
+      .section-heading::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 3px;
+        background-color: var(--primary-color);
+        margin: 10px auto 0;
+      }
+
+      /* Profile Image Ring */
+      .profile-ring {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        border: 8px solid var(--primary-color);
+      }
+    </style>
+  </head>
+  <body class="dark-text">
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+      <div
+        class="container mx-auto flex flex-col md:flex-row justify-between items-center px-4 py-4 max-w-7xl">
+        <a
+          href="#hero"
+          class="text-2xl font-bold dark-text transition duration-300 hover:text-gray-700"
+          >Ali Khalil</a
+        >
+        <ul
+          class="flex flex-wrap justify-center space-x-4 md:space-x-6 mt-3 md:mt-0 text-lg">
+          <li>
+            <a
+              href="#about"
+              class="dark-text hover:primary-text transition duration-300"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#education"
+              class="dark-text hover:primary-text transition duration-300"
+              >Education</a
+            >
+          </li>
+          <li>
+            <a
+              href="#tools"
+              class="dark-text hover:primary-text transition duration-300"
+              >Tools</a
+            >
+          </li>
+          <li>
+            <a
+              href="#projects"
+              class="dark-text hover:primary-text transition duration-300"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="dark-text hover:primary-text transition duration-300"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <header id="hero" class="min-h-screen flex items-center py-20">
+      <div
+        class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-12 px-4 max-w-7xl">
+        <div class="md:w-3/5 text-center md:text-left">
+          <p class="text-xl text-gray-600 mb-2">Hello, I'm</p>
+          <h1 class="text-5xl md:text-7xl font-extrabold dark-text mb-3">
+            Ali Khalil
+          </h1>
+          <p class="text-2xl primary-text font-semibold mb-5">
+            Junior Digital Marketing Specialist
+          </p>
+          <p class="text-lg text-gray-700 max-w-xl md:max-w-none mb-8">
+            I combine analytical thinking with creative execution to drive
+            effective marketing campaigns, with a special passion for the
+            intersection of **AI and business growth**.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <a
+              href="#contact"
+              class="btn primary-bg text-white px-8 py-3 rounded-lg font-semibold border-2 border-transparent hover:opacity-90 transition duration-300">
+              Start a Conversation
+            </a>
+            <a
+              href="#projects"
+              class="btn primary-text bg-transparent px-8 py-3 rounded-lg font-semibold border-2 border-primary-color hover:bg-primary-color hover:text-white transition duration-300">
+              View My Projects
+            </a>
+          </div>
+        </div>
+
+        <div class="md:w-2/5 flex justify-center order-first md:order-last">
+          <div
+            class="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden profile-ring transition duration-500 ease-in-out transform hover:scale-105">
+            <img
+              src="images/Ali.png"
+              alt="Profile Image of Ali Khalil"
+              class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="about" class="py-20 border-b border-gray-200">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <h2
+          class="text-center section-heading text-4xl font-bold dark-text mb-10">
+          About Me
+        </h2>
+        <div class="max-w-3xl mx-auto text-lg space-y-6 text-gray-700">
+          <p>
+            I'm passionate about one thing:
+            <strong>making marketing work</strong>. As a Junior Digital
+            Marketing Specialist trained at the
+            <strong>Institute of Management Professionals</strong>, I combine
+            analytical thinking with creative execution to build campaigns that
+            actually move the needle.
+          </p>
+          <p>
+            What excites me most? The intersection of
+            <strong>AI and marketing</strong>. Discovering how data can unlock
+            growth. Building brands that resonate. Creating funnels that
+            convert.
+          </p>
+          <p class="pt-4 text-center">
+            I'm eager to bring this enthusiasm to a team where I can grow,
+            learn, and prove that dedication and smart strategy can drive
+            extraordinary results.
+          </p>
+          <div class="text-center pt-6">
+            <a
+              href="#"
+              class="btn primary-text bg-transparent px-8 py-3 rounded-lg font-semibold border-2 border-primary-color hover:bg-primary-color hover:text-white transition duration-300">
+              Download Resume (CV)
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="py-20 light-bg border-b border-gray-200">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <h2
+          class="text-center section-heading text-4xl font-bold dark-text mb-10">
+          Education &amp; Certifications
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary-color transition duration-300 hover:shadow-xl">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-bold dark-text">
+                Digital Marketing Diploma
+              </h3>
+              <p class="text-sm font-semibold secondary-text">2024</p>
+            </div>
+            <p class="text-gray-600 mb-2">
+              <i class="fas fa-university primary-text mr-2"></i> Institute of
+              Management Professionals
+            </p>
+            <p class="text-sm italic text-gray-500 mb-4">
+              - Instructor: Eng. Ashraf El Rouby
+            </p>
+            <a
+              href="https://imanagementpro.com/en/"
+              target="_blank"
+              class="text-sm primary-text hover:underline mb-4 block">
+              View Institution &rarr;
+            </a>
+            <ul class="mt-4 space-y-2 text-sm text-gray-700">
+              <li>
+                <i class="fas fa-check-circle secondary-text mr-2"></i>
+                <strong>AI-Powered Digital Marketing</strong>
+              </li>
+              <li>
+                <i class="fas fa-check-circle secondary-text mr-2"></i>
+                Marketing Fundamentals &amp; Strategy
+              </li>
+              <li>
+                <i class="fas fa-check-circle secondary-text mr-2"></i>
+                <strong>Media Buying</strong> (Meta, TikTok, LinkedIn, Snapchat,
+                Twitter)
+              </li>
+              <li>
+                <i class="fas fa-check-circle secondary-text mr-2"></i> Google
+                Ads &amp; YouTube
+              </li>
+              <li>
+                <i class="fas fa-check-circle secondary-text mr-2"></i> Content
+                Creation &amp; AI Tools Integration
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary-color transition duration-300 hover:shadow-xl">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-bold dark-text">
+                Meta Blueprint Certification
+              </h3>
+              <p class="text-sm font-semibold secondary-text">Certification</p>
+            </div>
+            <p class="text-gray-600 mb-4">
+              <i class="fas fa-certificate primary-text mr-2"></i> Platform:
+              Meta Business
+            </p>
+            <p class="text-gray-700">
+              Advanced Facebook &amp; Instagram advertising techniques and best
+              practices.
+            </p>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary-color transition duration-300 hover:shadow-xl">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-bold dark-text">Continuous Learning</h3>
+              <p class="text-sm font-semibold secondary-text">Self-Paced</p>
+            </div>
+            <p class="text-gray-600 mb-4">
+              <i class="fas fa-lightbulb primary-text mr-2"></i> YouTube
+              Learning &amp; Industry Experts
+            </p>
+            <p class="text-gray-700 mb-3">
+              Following key insights and advanced strategies from industry
+              leaders:
+            </p>
+            <ul
+              class="list-disc list-inside space-y-1 text-sm text-gray-700 ml-4">
+              <li>Basem Magdy</li>
+              <li>Mahmoud Omar</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools" class="py-20 border-b border-gray-200">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <h2
+          class="text-center section-heading text-4xl font-bold dark-text mb-10">
+          Core Skills &amp; Tools
+        </h2>
+
+        <div class="light-bg p-6 rounded-xl mb-8 shadow-md">
+          <h3 class="text-2xl font-semibold primary-text mb-4">
+            🎨 Design &amp; AI Tools
+          </h3>
+          <div class="flex flex-wrap gap-3">
+            <div
+              class="tool-item primary-bg text-white text-sm px-4 py-2 rounded-full flex items-center">
+              <i class="fas fa-palette mr-2"></i> <span>Canva</span> - Design
+            </div>
+            <div
+              class="tool-item primary-bg text-white text-sm px-4 py-2 rounded-full flex items-center">
+              <i class="fas fa-robot mr-2"></i> <span>ChatGPT</span> - AI
+              Assistant
+            </div>
+            <div
+              class="tool-item primary-bg text-white text-sm px-4 py-2 rounded-full flex items-center">
+              <i class="fas fa-brain mr-2"></i> <span>Claude</span> - AI
+              Assistant
+            </div>
+            <div
+              class="tool-item primary-bg text-white text-sm px-4 py-2 rounded-full flex items-center">
+              <i class="fas fa-search-dollar mr-2"></i>
+              <span>Perplexity</span> - AI Research
+            </div>
+            <div
+              class="tool-item primary-bg text-white text-sm px-4 py-2 rounded-full flex items-center">
+              <i class="fas fa-pencil-ruler mr-2"></i> <span>Ideogram</span> -
+              AI Design
+            </div>
+            <div
+              class="tool-item primary-bg text-white text-sm px-4 py-2 rounded-full flex items-center">
+              <i class="fas fa-magic mr-2"></i> <span>Leonardo.AI</span> - AI
+              Design
+            </div>
+          </div>
+        </div>
+
+        <div class="light-bg p-6 rounded-xl shadow-md">
+          <h3 class="text-2xl font-semibold primary-text mb-4">
+            📈 Analytics &amp; Management
+          </h3>
+          <div class="flex flex-wrap gap-3">
+            <div
+              class="tool-item primary-bg text-white text-sm px-4 py-2 rounded-full flex items-center">
+              <i class="fas fa-chart-line mr-2"></i>
+              <span>Google Analytics</span> - Analytics
+            </div>
+            <div
+              class="tool-item primary-bg text-white text-sm px-4 py-2 rounded-full flex items-center">
+              <i class="fas fa-tags mr-2"></i> <span>Google Tag Manager</span> -
+              Analytics
+            </div>
+            <div
+              class="tool-item primary-bg text-white text-sm px-4 py-2 rounded-full flex items-center">
+              <i class="fab fa-facebook-square mr-2"></i>
+              <span>Meta Business Suite</span> - Management
+            </div>
+            <div
+              class="tool-item primary-bg text-white text-sm px-4 py-2 rounded-full flex items-center">
+              <i class="fas fa-briefcase mr-2"></i>
+              <span>Business Manager</span> - Management
+            </div>
+            <div
+              class="tool-item primary-bg text-white text-sm px-4 py-2 rounded-full flex items-center">
+              <i class="fas fa-bullhorn mr-2"></i> <span>Ads Manager</span> -
+              Advertising
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-20 light-bg">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <h2
+          class="text-center section-heading text-4xl font-bold dark-text mb-10">
+          Featured Case Studies
+        </h2>
+
+        <p
+          class="text-center text-lg text-gray-600 mb-12 p-3 bg-yellow-100 rounded-lg">
+          <i class="fas fa-flask mr-2 text-yellow-600"></i> Note: These are
+          <strong>Conceptual Case Studies</strong> created for portfolio
+          demonstration purposes.
+        </p>
+
+        <div class="space-y-16">
+          <div class="bg-white p-6 md:p-10 rounded-xl shadow-2xl space-y-8">
+            <div class="project-header text-center">
+              <h3 class="text-3xl font-extrabold primary-text">
+                Project 1: Crust &amp; Bean
+              </h3>
+              <p class="text-xl font-semibold dark-text">
+                Brand Launch - The Missing Link Strategy
+              </p>
+              <span class="text-sm text-gray-500"
+                >Food &amp; Beverage | Sheikh Zayed, Egypt</span
+              >
+              <p class="text-lg font-bold mt-2 secondary-text">
+                Role: Digital Marketing Strategist
+              </p>
+            </div>
+
+            <div class="project-summary max-w-4xl mx-auto space-y-4">
+              <h4 class="text-2xl font-bold dark-text border-b pb-2">
+                The Challenge &amp; Unique Solution
+              </h4>
+              <p class="text-gray-700">
+                Launching a new cafe in a highly saturated Sheikh Zayed market
+                dominated by established chains. The solution was positioning
+                the brand as <strong>"The Missing Link"</strong>: the ONLY café
+                combining specialty coffee with fresh artisan bread baked daily.
+              </p>
+            </div>
+
+            <div
+              class="infographic-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div
+                class="kpi-box light-bg p-4 rounded-lg text-center shadow-inner">
+                <i class="fas fa-dollar-sign primary-text text-3xl mb-2"></i>
+                <p class="text-sm text-gray-500">Month 3 Revenue Projection</p>
+                <p class="text-xl font-bold dark-text">650,000 - 750,000 EGP</p>
+              </div>
+              <div
+                class="kpi-box light-bg p-4 rounded-lg text-center shadow-inner">
+                <i class="fas fa-redo-alt primary-text text-3xl mb-2"></i>
+                <p class="text-sm text-gray-500">Repeat Customer Rate</p>
+                <p class="text-xl font-bold dark-text">60% Target</p>
+              </div>
+              <div
+                class="kpi-box light-bg p-4 rounded-lg text-center shadow-inner">
+                <i class="fas fa-users primary-text text-3xl mb-2"></i>
+                <p class="text-sm text-gray-500">
+                  Social Media Followers (3-Month)
+                </p>
+                <p class="text-xl font-bold dark-text">5,000+ Followers</p>
+              </div>
+            </div>
+
+            <div class="social-media-section text-center">
+              <h4 class="text-2xl font-bold dark-text border-b pb-2 mb-4">
+                Follow the Campaign (Conceptual)
+              </h4>
+              <div class="flex justify-center gap-6 flex-wrap">
+                <a
+                  href="https://www.facebook.com/crustbeancafe"
+                  target="_blank"
+                  class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition"
+                  ><i class="fab fa-facebook-f mr-2"></i>Facebook</a
+                >
+                <a
+                  href="https://www.instagram.com/crustbeancafe"
+                  target="_blank"
+                  class="bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700 transition"
+                  ><i class="fab fa-instagram mr-2"></i>Instagram</a
+                >
+                <a
+                  href="https://www.tiktok.com/@crustbeancafe"
+                  target="_blank"
+                  class="bg-black text-white px-4 py-2 rounded-full hover:opacity-80 transition"
+                  ><i class="fab fa-tiktok mr-2"></i>TikTok</a
+                >
+              </div>
+            </div>
+
+            <div class="content-calendar-section">
+              <h4 class="text-2xl font-bold dark-text border-b pb-2 mb-4">
+                Weekly Content Calendar
+              </h4>
+              <div class="table-container overflow-x-auto rounded-lg shadow-lg">
+                <table
+                  class="content-calendar-table w-full text-left bg-white border-collapse">
+                  <thead class="bg-primary-color text-white">
+                    <tr>
+                      <th class="p-3">Day</th>
+                      <th class="p-3">Platform</th>
+                      <th class="p-3">Content Type</th>
+                      <th class="p-3">Idea</th>
+                      <th class="p-3">Objective</th>
+                      <th class="p-3">CTA</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-b hover:bg-gray-50">
+                      <td class="p-3" data-label="Day">Day 1 (Opening)</td>
+                      <td class="p-3" data-label="Platform">
+                        <span
+                          class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full text-xs font-semibold"
+                          >Facebook + Instagram</span
+                        >
+                      </td>
+                      <td class="p-3" data-label="Content Type">
+                        Video / Reel
+                      </td>
+                      <td class="p-3" data-label="Idea">
+                        Venue opening video – first scene from the atmosphere +
+                        slogan "We've started!"
+                      </td>
+                      <td class="p-3" data-label="Objective">
+                        <span
+                          class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-semibold"
+                          >Awareness</span
+                        >
+                      </td>
+                      <td class="p-3" data-label="CTA">
+                        "Come see for yourself!"
+                      </td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                      <td class="p-3" data-label="Day">Day 2</td>
+                      <td class="p-3" data-label="Platform">
+                        <span
+                          class="bg-pink-100 text-pink-700 px-2 py-1 rounded-full text-xs font-semibold"
+                          >Instagram + TikTok</span
+                        >
+                      </td>
+                      <td class="p-3" data-label="Content Type">Short Reel</td>
+                      <td class="p-3" data-label="Idea">
+                        Barista preparing the first cup of coffee at the opening
+                      </td>
+                      <td class="p-3" data-label="Objective">
+                        <span
+                          class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-semibold"
+                          >Engagement</span
+                        >
+                      </td>
+                      <td class="p-3" data-label="CTA">
+                        "Share your first coffee experience with us!"
+                      </td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                      <td class="p-3" data-label="Day">Day 3</td>
+                      <td class="p-3" data-label="Platform">
+                        <span
+                          class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-semibold"
+                          >Facebook</span
+                        >
+                      </td>
+                      <td class="p-3" data-label="Content Type">Static Post</td>
+                      <td class="p-3" data-label="Idea">
+                        Photo of the café's exterior + introductory copy
+                      </td>
+                      <td class="p-3" data-label="Objective">
+                        <span
+                          class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-semibold"
+                          >Awareness</span
+                        >
+                      </td>
+                      <td class="p-3" data-label="CTA">
+                        "Learn more about Crust &amp; Bean"
+                      </td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                      <td class="p-3" data-label="Day">Day 4</td>
+                      <td class="p-3" data-label="Platform">
+                        <span
+                          class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full text-xs font-semibold"
+                          >Instagram Stories</span
+                        >
+                      </td>
+                      <td class="p-3" data-label="Content Type">
+                        Story Series
+                      </td>
+                      <td class="p-3" data-label="Idea">
+                        Poll: "How do you start your day? ☕ or 🥐?"
+                      </td>
+                      <td class="p-3" data-label="Objective">
+                        <span
+                          class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-semibold"
+                          >Engagement</span
+                        >
+                      </td>
+                      <td class="p-3" data-label="CTA">
+                        "Answer and win an opening discount"
+                      </td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50">
+                      <td class="p-3" data-label="Day">Day 5</td>
+                      <td class="p-3" data-label="Platform">
+                        <span
+                          class="bg-black text-white px-2 py-1 rounded-full text-xs font-semibold"
+                          >TikTok + Instagram</span
+                        >
+                      </td>
+                      <td class="p-3" data-label="Content Type">Reel</td>
+                      <td class="p-3" data-label="Idea">
+                        Before/After coffee transition
+                      </td>
+                      <td class="p-3" data-label="Objective">
+                        <span
+                          class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-semibold"
+                          >Entertainment</span
+                        >
+                      </td>
+                      <td class="p-3" data-label="CTA">
+                        "Follow us for more fun moments!"
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                      <td class="p-3" data-label="Day">Day 6</td>
+                      <td class="p-3" data-label="Platform">
+                        <span
+                          class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full text-xs font-semibold"
+                          >Facebook + Instagram</span
+                        >
+                      </td>
+                      <td class="p-3" data-label="Content Type">Carousel</td>
+                      <td class="p-3" data-label="Idea">
+                        "3 reasons to visit Crust &amp; Bean today"
+                      </td>
+                      <td class="p-3" data-label="Objective">
+                        <span
+                          class="bg-orange-100 text-orange-700 px-2 py-1 rounded-full text-xs font-semibold"
+                          >Consideration</span
+                        >
+                      </td>
+                      <td class="p-3" data-label="CTA">
+                        "Visit us today and enjoy your first cup of coffee on
+                        us!"
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="visual-identity-section-enhanced">
+              <div
+                class="slideshow-container relative w-full bg-black rounded-lg shadow-xl">
+                <h4
+                  class="identity-heading text-xl md:text-2xl font-bold pt-4 text-white text-center">
+                  <i class="fas fa-palette mr-2"></i> Visual Identity &amp;
+                  Brand Assets
+                </h4>
+                <p
+                  class="identity-description text-sm text-gray-300 text-center mb-4 px-4">
+                  Complete brand identity system showcasing the warm, artisan
+                  aesthetic.
+                </p>
+                <div class="slideshow pt-4" id="identity-slideshow">
+                  <div class="slide active">
+                    <img
+                      src="images/uniform.jpg.png"
+                      alt="Staff Uniforms - Branded Apparel"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Staff Uniforms - Branded Apparel
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/cofee makr.jpg.png"
+                      alt="Latte Art & Coffee Preparation"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Latte Art & Coffee Preparation
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/roadsd.jpg.png"
+                      alt="Billboard Advertising"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Billboard Advertising
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/ditination.jpg.png"
+                      alt="Café Exterior Storefront"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Café Exterior Storefront
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/paletging.jpg.png"
+                      alt="Logo & Brand Guidelines"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Logo & Brand Guidelines
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/packetging.jpg.png"
+                      alt="Packaging Design - Coffee Cups"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Packaging Design - Coffee Cups
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/bakary.jpg.png"
+                      alt="Fresh Bread Display"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Fresh Bread Display
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/inside.jpg.png"
+                      alt="Interior Café Ambiance"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Interior Café Ambiance
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/products.jpg.png"
+                      alt="Croissant & Pastry Selection"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Croissant & Pastry Selection
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/happywithdrink.jpg.png"
+                      alt="Customer Coffee Experience"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Customer Coffee Experience
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/focus.jpg.png"
+                      alt="Working Café Atmosphere"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Working Café Atmosphere
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/identityview.jpg.png"
+                      alt="Social Media Grid Layout"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Social Media Grid Layout
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/LOGO.jpg.png"
+                      alt="Brand Identity Overview"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Brand Identity Overview
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/paletging.jpg.png"
+                      alt="Packaging Applications"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Packaging Applications
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/workspase.jpg.png"
+                      alt="Café Interior Design"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Café Interior Design
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/sitting.jpg.png"
+                      alt="Coffee & Croissant Pairing"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Coffee & Croissant Pairing
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/sitting2.jpg.png"
+                      alt="Outdoor Seating Area"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Seating Area
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/instagramover.jpg.png"
+                      alt="Product Photography"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Product Photography (Social)
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/workperfectly.jpg.png"
+                      alt="Customer Moments"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Customer Moments
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/menu.jpg.png"
+                      alt="Marketing Collateral"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Marketing Collateral
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/product2.jpg.png"
+                      alt="Brand Touchpoints"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Brand Touchpoints (Social Poll)
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/LOGO.jpg.png"
+                      alt="Complete Brand System"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Complete Brand System
+                    </p>
+                  </div>
+
+                  <button
+                    class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
+                    onclick="changeSlide('identity-slideshow', -1)">
+                    ❮
+                  </button>
+                  <button
+                    class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
+                    onclick="changeSlide('identity-slideshow', 1)">
+                    ❯
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="skills-demonstrated">
+              <h4 class="text-2xl font-bold dark-text border-b pb-2 mb-4">
+                Skills Demonstrated
+              </h4>
+              <ul
+                class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700 list-none">
+                <li>
+                  <i class="fas fa-chart-pie primary-text mr-2"></i> Market
+                  Research &amp; Competitive Analysis
+                </li>
+                <li>
+                  <i class="fas fa-sitemap primary-text mr-2"></i> Brand
+                  Strategy &amp; Positioning
+                </li>
+                <li>
+                  <i class="fas fa-tv primary-text mr-2"></i> Social Media &amp;
+                  Content Strategy
+                </li>
+                <li>
+                  <i class="fas fa-map-marker-alt primary-text mr-2"></i>
+                  Strategic Location Choice
+                </li>
+                <li>
+                  <i class="fas fa-camera-retro primary-text mr-2"></i> Visual
+                  Content Creation &amp; Curation
+                </li>
+                <li>
+                  <i class="fas fa-desktop primary-text mr-2"></i> Digital Ad
+                  Creative Direction
+                </li>
+              </ul>
+            </div>
+
+            <div class="text-center pt-4">
+              <a
+                href="#"
+                class="btn primary-bg text-white px-8 py-3 rounded-lg font-semibold border-2 border-transparent hover:opacity-90 transition duration-300">
+                View Full Case Study PDF
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 md:p-10 rounded-xl shadow-2xl space-y-8">
+            <div class="project-header text-center">
+              <h3 class="text-3xl font-extrabold primary-text">
+                Project 2: Fashion Erra
+              </h3>
+              <p class="text-xl font-semibold dark-text">
+                Advanced Media Buying Strategy &amp; Analytics
+              </p>
+              <span class="text-sm text-gray-500"
+                >Smart Electronics Dropshipping | Egypt E-Commerce</span
+              >
+              <p class="text-lg font-bold mt-2 secondary-text">
+                Role: Media Buying Strategist &amp; Analyst
+              </p>
+            </div>
+
+            <div class="project-summary max-w-4xl mx-auto space-y-4">
+              <h4 class="text-2xl font-bold dark-text border-b pb-2">
+                Overview
+              </h4>
+              <p class="text-gray-700">
+                A comprehensive media buying strategy for a smart electronics
+                dropshipping business targeting Egypt's 9 billion USD e-commerce
+                market. The strategy focuses on achieving **50,000 EGP monthly
+                sales** with a **7,000 EGP advertising budget**.
+              </p>
+            </div>
+
+            <div class="highlights-section">
+              <h4 class="text-2xl font-bold dark-text border-b pb-2 mb-4">
+                Key Highlights
+              </h4>
+              <div
+                class="highlights-grid grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div
+                  class="highlight-box light-bg p-3 rounded-lg text-center shadow-inner">
+                  <i class="fas fa-chart-line primary-text text-2xl mb-1"></i>
+                  <p class="text-xs text-gray-500">Market Size</p>
+                  <p class="text-lg font-bold dark-text">9 Billion USD</p>
+                </div>
+                <div
+                  class="highlight-box light-bg p-3 rounded-lg text-center shadow-inner">
+                  <i class="fas fa-users primary-text text-2xl mb-1"></i>
+                  <p class="text-xs text-gray-500">Target Audience</p>
+                  <p class="text-lg font-bold dark-text">45M+ Users</p>
+                </div>
+                <div
+                  class="highlight-box light-bg p-3 rounded-lg text-center shadow-inner">
+                  <i class="fas fa-dollar-sign primary-text text-2xl mb-1"></i>
+                  <p class="text-xs text-gray-500">Ad Budget</p>
+                  <p class="text-lg font-bold dark-text">7,000 EGP</p>
+                </div>
+                <div
+                  class="highlight-box light-bg p-3 rounded-lg text-center shadow-inner">
+                  <i class="fas fa-trophy primary-text text-2xl mb-1"></i>
+                  <p class="text-xs text-gray-500">Revenue Target</p>
+                  <p class="text-lg font-bold dark-text">50,000 EGP</p>
+                </div>
+                <div
+                  class="highlight-box light-bg p-3 rounded-lg text-center shadow-inner">
+                  <i class="fas fa-bullseye primary-text text-2xl mb-1"></i>
+                  <p class="text-xs text-gray-500">Target ROAS</p>
+                  <p class="text-lg font-bold dark-text">12x</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="personas-section">
+              <h4 class="text-2xl font-bold dark-text border-b pb-2 mb-4">
+                Buyer Personas
+              </h4>
+              <div
+                class="personas-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div
+                  class="persona-card light-bg p-4 rounded-lg shadow-md border-t-4 border-primary-color">
+                  <div class="persona-header mb-2">
+                    <i class="fas fa-user-graduate primary-text mr-2"></i>
+                    <h5 class="font-bold inline dark-text">
+                      Budget-Conscious Student
+                    </h5>
+                  </div>
+                  <p class="text-sm text-gray-700">
+                    <strong>Age:</strong> 18-24
+                  </p>
+                  <p class="text-sm text-gray-700">
+                    <strong>AOV:</strong> 300-500 EGP
+                  </p>
+                  <p class="text-xs italic mt-2 secondary-text">
+                    Limited budget, wants trendy tech
+                  </p>
+                </div>
+                <div
+                  class="persona-card light-bg p-4 rounded-lg shadow-md border-t-4 border-primary-color">
+                  <div class="persona-header mb-2">
+                    <i class="fas fa-briefcase primary-text mr-2"></i>
+                    <h5 class="font-bold inline dark-text">
+                      Working Professional
+                    </h5>
+                  </div>
+                  <p class="text-sm text-gray-700">
+                    <strong>Age:</strong> 28-35
+                  </p>
+                  <p class="text-sm text-gray-700">
+                    <strong>AOV:</strong> 600-900 EGP
+                  </p>
+                  <p class="text-xs italic mt-2 secondary-text">
+                    Needs reliable products for work-life balance
+                  </p>
+                </div>
+                <div
+                  class="persona-card light-bg p-4 rounded-lg shadow-md border-t-4 border-primary-color">
+                  <div class="persona-header mb-2">
+                    <i class="fas fa-laptop-code primary-text mr-2"></i>
+                    <h5 class="font-bold inline dark-text">
+                      Tech-Savvy Manager
+                    </h5>
+                  </div>
+                  <p class="text-sm text-gray-700">
+                    <strong>Age:</strong> 30-38
+                  </p>
+                  <p class="text-sm text-gray-700">
+                    <strong>AOV:</strong> 1,000-1,500 EGP
+                  </p>
+                  <p class="text-xs italic mt-2 secondary-text">
+                    Needs premium quality for productivity
+                  </p>
+                </div>
+                <div
+                  class="persona-card light-bg p-4 rounded-lg shadow-md border-t-4 border-primary-color">
+                  <div class="persona-header mb-2">
+                    <i class="fas fa-video primary-text mr-2"></i>
+                    <h5 class="font-bold inline dark-text">Content Creator</h5>
+                  </div>
+                  <p class="text-sm text-gray-700">
+                    <strong>Age:</strong> 20-26
+                  </p>
+                  <p class="text-sm text-gray-700">
+                    <strong>AOV:</strong> 400-700 EGP
+                  </p>
+                  <p class="text-xs italic mt-2 secondary-text">
+                    Wants stylish accessories for social media
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="campaign-execution-section space-y-8">
+              <h4 class="text-2xl font-bold dark-text border-b pb-2 mb-4">
+                Campaign Execution Across Platforms
+              </h4>
+              <p class="text-gray-700">
+                Real implementation showing campaign hierarchy, targeting, and
+                creative execution across all major advertising platforms:
+              </p>
+
+              <div
+                class="slideshow-container relative w-full bg-black rounded-lg shadow-xl">
+                <h5
+                  class="platform-heading text-xl font-bold pt-4 text-white text-center">
+                  <i class="fab fa-facebook mr-2"></i> Facebook Ads Campaign
+                </h5>
+                <div class="slideshow pt-4" id="facebook-slideshow">
+                  <div class="slide active">
+                    <img
+                      src="images/Campiain.png"
+                      alt="Facebook Campaign Settings"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Facebook Campaign Settings - Objective, Budget &amp;
+                      Schedule
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/Ad Set 1.png"
+                      alt="Ad Set 1 Configuration"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Ad Set Configuration - Targeting, Placement &amp; Budget
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/Ad Set 2.png"
+                      alt="Ad Set 2 Configuration"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Additional Ad Set - Alternative Audience Targeting
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/ad1.png"
+                      alt="Ad Creative 1"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Ad Creative - Product Showcase &amp; Copy
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/ad2.png"
+                      alt="Ad Creative 2"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Ad Creative - Alternative Design &amp; Messaging
+                    </p>
+                  </div>
+                  <button
+                    class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
+                    onclick="changeSlide('facebook-slideshow', -1)">
+                    ❮
+                  </button>
+                  <button
+                    class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
+                    onclick="changeSlide('facebook-slideshow', 1)">
+                    ❯
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="slideshow-container relative w-full bg-black rounded-lg shadow-xl">
+                <h5
+                  class="platform-heading text-xl font-bold pt-4 text-white text-center">
+                  <i class="fab fa-tiktok mr-2"></i> TikTok Ads Campaign
+                </h5>
+                <div class="slideshow pt-4" id="tiktok-slideshow">
+                  <div class="slide active">
+                    <img
+                      src="images/tiktok campain.png"
+                      alt="TikTok Campaign Overview"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      TikTok Campaign Setup - Objective, Budget &amp;
+                      Optimization
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/tiktok ad1.png"
+                      alt="TikTok Ad Group Configuration"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Ad Group Configuration - Audience, Placements &amp;
+                      Bidding
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/tiktok ad2.png"
+                      alt="TikTok Ad Creative 1"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      TikTok Ad Creative - Ad Setup &amp; Identity
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/tiktok ad2.png"
+                      alt="TikTok Ad Creative 2"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      TikTok Ad Creative - Interactive Add-ons
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <div
+                      class="w-full h-[450px] flex items-center justify-center bg-gray-800 text-white text-lg rounded-t-lg">
+                      <i class="fab fa-tiktok mr-2"></i> Creative 3 Placeholder
+                    </div>
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Creative Optimization Example
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <div
+                      class="w-full h-[450px] flex items-center justify-center bg-gray-800 text-white text-lg rounded-t-lg">
+                      <i class="fas fa-chart-line mr-2"></i>
+                      Results/Optimization Placeholder
+                    </div>
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Performance Results &amp; Optimization Strategy
+                    </p>
+                  </div>
+                  <button
+                    class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
+                    onclick="changeSlide('tiktok-slideshow', -1)">
+                    ❮
+                  </button>
+                  <button
+                    class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
+                    onclick="changeSlide('tiktok-slideshow', 1)">
+                    ❯
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="slideshow-container relative w-full bg-black rounded-lg shadow-xl">
+                <h5
+                  class="platform-heading text-xl font-bold pt-4 text-white text-center">
+                  <i class="fab fa-google mr-2"></i> Google Ads Campaign
+                </h5>
+                <div class="slideshow pt-4" id="google-slideshow">
+                  <div class="slide active">
+                    <img
+                      src="images/1.png"
+                      alt="Google Ads Campaign Settings"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Google Ads Campaign - Networks, Locations &amp; Languages
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/2.png"
+                      alt="Bidding Strategy"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Bidding Strategy - Customer Acquisition Focus
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/3.png"
+                      alt="Budget Configuration"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Daily Budget Setup
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/4.png"
+                      alt="Keyword & Asset Generation"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Keyword & Asset Generation - URL and Keyword Creation
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/5.png"
+                      alt="Ad Group Keywords"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Ad Group Keyword Setup
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/6.png"
+                      alt="Ad Groups Overview"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Ad Groups - Keywords &amp; Assets Overview
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/7.png"
+                      alt="Ad Creation Headlines"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Ad Creation - Headlines &amp; Descriptions
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/8.png"
+                      alt="Ad Assets Sitelinks"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Ad Creation - Sitelinks &amp; Assets
+                    </p>
+                  </div>
+                  <button
+                    class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
+                    onclick="changeSlide('google-slideshow', -1)">
+                    ❮
+                  </button>
+                  <button
+                    class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
+                    onclick="changeSlide('google-slideshow', 1)">
+                    ❯
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="slideshow-container relative w-full bg-black rounded-lg shadow-xl">
+                <h5
+                  class="platform-heading text-xl font-bold pt-4 text-white text-center">
+                  <i class="fab fa-snapchat-ghost mr-2"></i> Snapchat Ads
+                  Campaign
+                </h5>
+                <div class="slideshow pt-4" id="snapchat-slideshow">
+                  <div class="slide active">
+                    <img
+                      src="images/snapchat campaign.png"
+                      alt="Snapchat Campaign Overview"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Snapchat Campaign - FASHION ERRA SALES Campaign Details
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/snapchat ad1.png"
+                      alt="Ad Set 1 Configuration"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Ad Set Setup - Audience, Budget &amp; Timeline
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/snapchat ad 2.png"
+                      alt="Ad Set 2 Configuration"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Ad Set Setup - Location &amp; Demographics
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/snapchat Ad Set 1.png"
+                      alt="Snapchat Ad Creative 1"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Snapchat Ad Creative - Smart Watch X10
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/snapchat ad set 2.png"
+                      alt="Snapchat Ad Creative 2"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Snapchat Ad Creative - AirPods with Details
+                    </p>
+                  </div>
+                  <button
+                    class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
+                    onclick="changeSlide('snapchat-slideshow', -1)">
+                    ❮
+                  </button>
+                  <button
+                    class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
+                    onclick="changeSlide('snapchat-slideshow', 1)">
+                    ❯
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="slideshow-container relative w-full bg-black rounded-lg shadow-xl">
+                <h5
+                  class="platform-heading text-xl font-bold pt-4 text-white text-center">
+                  <i class="fas fa-chart-line mr-2"></i> Analytics &amp;
+                  Tracking
+                </h5>
+                <div class="slideshow pt-4" id="gtm-slideshow">
+                  <div class="slide active">
+                    <img
+                      src="images/gtm.png"
+                      alt="Google Tag Manager Workspace"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      GTM Workspace - Tags, Triggers &amp; Variables
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/gtm.png"
+                      alt="Tags Configuration"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Tags Setup - Facebook, TikTok &amp; Google Ads
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/gtm.png"
+                      alt="Custom Variables"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Variables Configuration - Data Layer &amp; Built-in
+                      Variables
+                    </p>
+                  </div>
+                  <div class="slide">
+                    <img
+                      src="images/gtm.png"
+                      alt="Triggers Configuration"
+                      class="slide-img w-full h-auto mx-auto object-contain" />
+                    <p class="slide-caption bg-black text-white p-3 text-sm">
+                      Triggers Setup - Button Clicks, Page Views &amp; Custom
+                      Events
+                    </p>
+                  </div>
+                  <button
+                    class="slide-nav prev absolute top-1/2 -translate-y-1/2 left-0 bg-black bg-opacity-50 text-white p-3 rounded-r-lg hover:bg-opacity-75 transition"
+                    onclick="changeSlide('gtm-slideshow', -1)">
+                    ❮
+                  </button>
+                  <button
+                    class="slide-nav next absolute top-1/2 -translate-y-1/2 right-0 bg-black bg-opacity-50 text-white p-3 rounded-l-lg hover:bg-opacity-75 transition"
+                    onclick="changeSlide('gtm-slideshow', 1)">
+                    ❯
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="funnel-section space-y-4">
+              <h4 class="text-2xl font-bold dark-text border-b pb-2">
+                Conversion Funnel (2.5% CR)
+              </h4>
+              <p class="text-gray-700">
+                Customer Journey with **2.5% Conversion Rate** (above Egypt's
+                e-commerce average)
+              </p>
+              <div
+                class="funnel-visualization flex flex-wrap justify-center items-center text-center text-sm md:text-base font-semibold space-y-2 md:space-y-0">
+                <div
+                  class="funnel-stage bg-primary-color text-white px-4 py-2 rounded-lg m-1">
+                  Impression
+                </div>
+                <div class="funnel-arrow text-primary-color mx-2">↓</div>
+                <div
+                  class="funnel-stage bg-primary-color text-white px-4 py-2 rounded-lg m-1">
+                  Click
+                </div>
+                <div class="funnel-arrow text-primary-color mx-2">↓</div>
+                <div
+                  class="funnel-stage bg-primary-color text-white px-4 py-2 rounded-lg m-1">
+                  Product View
+                </div>
+                <div class="funnel-arrow text-primary-color mx-2">↓</div>
+                <div
+                  class="funnel-stage bg-secondary-color text-white px-4 py-2 rounded-lg m-1">
+                  Add to Cart
+                </div>
+                <div class="funnel-arrow text-primary-color mx-2">↓</div>
+                <div
+                  class="funnel-stage bg-secondary-color text-white px-4 py-2 rounded-lg m-1">
+                  Checkout
+                </div>
+                <div class="funnel-arrow text-primary-color mx-2">↓</div>
+                <div
+                  class="funnel-stage final bg-green-600 text-white px-4 py-2 rounded-lg m-1">
+                  Purchase
+                </div>
+              </div>
+            </div>
+
+            <div class="metrics-section">
+              <h4 class="text-2xl font-bold dark-text border-b pb-2 mb-4">
+                Key Metrics
+              </h4>
+              <div
+                class="metrics-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div
+                  class="metric-box light-bg p-3 rounded-lg text-center shadow-inner">
+                  <p class="font-bold dark-text">CPM</p>
+                  <p class="primary-text font-semibold">20-40 EGP</p>
+                  <span class="text-xs text-gray-500"
+                    >Cost per 1,000 impressions</span
+                  >
+                </div>
+                <div
+                  class="metric-box light-bg p-3 rounded-lg text-center shadow-inner">
+                  <p class="font-bold dark-text">CPC</p>
+                  <p class="primary-text font-semibold">0.5-1.5 EGP</p>
+                  <span class="text-xs text-gray-500">Cost per Click</span>
+                </div>
+                <div
+                  class="metric-box light-bg p-3 rounded-lg text-center shadow-inner">
+                  <p class="font-bold dark-text">CPA</p>
+                  <p class="primary-text font-semibold">20-40 EGP</p>
+                  <span class="text-xs text-gray-500"
+                    >Cost per Acquisition</span
+                  >
+                </div>
+                <div
+                  class="metric-box light-bg p-3 rounded-lg text-center shadow-inner">
+                  <p class="font-bold dark-text">CTR</p>
+                  <p class="primary-text font-semibold">2-4%</p>
+                  <span class="text-xs text-gray-500">Click-through Rate</span>
+                </div>
+                <div
+                  class="metric-box light-bg p-3 rounded-lg text-center shadow-inner">
+                  <p class="font-bold dark-text">Product View Rate</p>
+                  <p class="primary-text font-semibold">30-50%</p>
+                  <span class="text-xs text-gray-500"
+                    >Visitors who view products</span
+                  >
+                </div>
+                <div
+                  class="metric-box light-bg p-3 rounded-lg text-center shadow-inner">
+                  <p class="font-bold dark-text">Conversion Rate</p>
+                  <p class="primary-text font-semibold">2-3%</p>
+                  <span class="text-xs text-gray-500"
+                    >Overall conversion rate</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-section">
+              <h4 class="text-2xl font-bold dark-text border-b pb-2 mb-4">
+                4-Week Roadmap
+              </h4>
+              <div class="roadmap-timeline space-y-4">
+                <div
+                  class="roadmap-item flex items-start p-4 light-bg rounded-lg border-l-4 border-green-500">
+                  <div
+                    class="roadmap-week bg-green-500 text-white font-bold p-2 rounded-full flex-shrink-0 text-sm">
+                    Week 1
+                  </div>
+                  <div class="roadmap-content ml-4">
+                    <p class="font-semibold dark-text">Phase: Testing</p>
+                    <p class="text-sm text-gray-700">
+                      Goal: Get first 10 sales with positive reviews
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="roadmap-item flex items-start p-4 light-bg rounded-lg border-l-4 border-yellow-500">
+                  <div
+                    class="roadmap-week bg-yellow-500 text-white font-bold p-2 rounded-full flex-shrink-0 text-sm">
+                    Week 2
+                  </div>
+                  <div class="roadmap-content ml-4">
+                    <p class="font-semibold dark-text">Phase: Optimization</p>
+                    <p class="text-sm text-gray-700">
+                      Goal: Identify top 3 winning products
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="roadmap-item flex items-start p-4 light-bg rounded-lg border-l-4 border-red-500">
+                  <div
+                    class="roadmap-week bg-red-500 text-white font-bold p-2 rounded-full flex-shrink-0 text-sm">
+                    Week 3
+                  </div>
+                  <div class="roadmap-content ml-4">
+                    <p class="font-semibold dark-text">Phase: Scaling</p>
+                    <p class="text-sm text-gray-700">
+                      Goal: Scale budget on winners only
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="roadmap-item flex items-start p-4 light-bg rounded-lg border-l-4 border-primary-color">
+                  <div
+                    class="roadmap-week bg-primary-color text-white font-bold p-2 rounded-full flex-shrink-0 text-sm">
+                    Week 4
+                  </div>
+                  <div class="roadmap-content ml-4">
+                    <p class="font-semibold dark-text">
+                      Phase: Target Achievement
+                    </p>
+                    <p class="text-sm text-gray-700">
+                      Goal: Achieve 12x ROAS target
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skills-demonstrated">
+              <h4 class="text-2xl font-bold dark-text border-b pb-2 mb-4">
+                Skills Demonstrated
+              </h4>
+              <ul
+                class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700 list-none">
+                <li>
+                  <i class="fas fa-bullhorn primary-text mr-2"></i> Media Buying
+                  &amp; Budget Allocation
+                </li>
+                <li>
+                  <i class="fas fa-user-friends primary-text mr-2"></i> Buyer
+                  Persona Development
+                </li>
+                <li>
+                  <i class="fas fa-filter primary-text mr-2"></i> Conversion
+                  Funnel Optimization
+                </li>
+                <li>
+                  <i class="fas fa-shopping-cart primary-text mr-2"></i>
+                  E-commerce Strategy
+                </li>
+                <li>
+                  <i class="fas fa-chart-bar primary-text mr-2"></i> Data
+                  Analysis &amp; KPI Tracking
+                </li>
+                <li>
+                  <i class="fab fa-facebook primary-text mr-2"></i> Meta Ads
+                  Management
+                </li>
+              </ul>
+            </div>
+
+            <div class="text-center pt-4">
+              <a
+                href="#"
+                class="btn primary-bg text-white px-8 py-3 rounded-lg font-semibold border-2 border-transparent hover:opacity-90 transition duration-300">
+                View Full Strategy
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 border-b border-gray-200">
+      <div class="container mx-auto px-4 max-w-7xl text-center">
+        <h2 class="section-heading text-4xl font-bold dark-text mb-6">
+          Let's Drive Extraordinary Results Together.
+        </h2>
+        <p class="text-xl text-gray-700 mb-12">
+          I'm actively seeking opportunities to leverage smart strategy and AI
+          to unlock growth. Feel free to connect!
+        </p>
+
+        <div
+          class="contact-info-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="contact-item light-bg p-6 rounded-xl border-b-4 border-primary-color shadow-md transition duration-300 hover:shadow-lg">
+            <i class="fas fa-envelope primary-text text-3xl mb-3"></i>
+            <h4 class="font-bold dark-text text-lg">Email</h4>
+            <a
+              href="mailto:alikhalil.marketer@gmail.com"
+              class="primary-text text-sm hover:underline">
+              alikhalil.marketer@gmail.com
+            </a>
+          </div>
+
+          <div
+            class="contact-item light-bg p-6 rounded-xl border-b-4 border-primary-color shadow-md transition duration-300 hover:shadow-lg">
+            <i class="fas fa-phone-alt primary-text text-3xl mb-3"></i>
+            <h4 class="font-bold dark-text text-lg">Phone</h4>
+            <a
+              href="tel:01006597820"
+              class="primary-text text-sm hover:underline">
+              01006597820
+            </a>
+          </div>
+
+          <div
+            class="contact-item light-bg p-6 rounded-xl border-b-4 border-primary-color shadow-md transition duration-300 hover:shadow-lg">
+            <i class="fas fa-map-marker-alt primary-text text-3xl mb-3"></i>
+            <h4 class="font-bold dark-text text-lg">Location</h4>
+            <p class="text-sm text-gray-700">Dakahlia, Egypt</p>
+          </div>
+
+          <div
+            class="contact-item light-bg p-6 rounded-xl border-b-4 border-primary-color shadow-md transition duration-300 hover:shadow-lg">
+            <i class="fab fa-linkedin primary-text text-3xl mb-3"></i>
+            <h4 class="font-bold dark-text text-lg">LinkedIn</h4>
+            <a
+              href="https://www.linkedin.com/in/alimarketing/"
+              target="_blank"
+              class="primary-text text-sm hover:underline">
+              Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <a
+          href="mailto:alikhalil.marketer@gmail.com?subject=Opportunity%20for%20a%20Junior%20Digital%20Marketing%20Specialist"
+          class="text-center secondary-text bg-transparent px-10 py-4 mt-12 rounded-lg font-semibold border-2 border-primary-color hover:bg-primary-color hover:text-white transition duration-300 text-lg">
+          Send a Message Now <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </section>
+
+    <footer class="bg-dark-text text-gray-300 py-8">
+      <div class="container mx-auto px-4 max-w-7xl text-center">
+        <p>
+          &copy; <span id="current-year"></span> Ali Khalil | Digital Marketing
+          Specialist Portfolio
+        </p>
+        <p class="text-sm text-gray-500 mt-2">
+          Designed and built with passion using modern web technologies.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Slideshow functionality
+      function initSlideshows() {
+        // Include all slideshows from the projects section
+        const slideshowIds = [
+          "identity-slideshow",
+          "facebook-slideshow",
+          "tiktok-slideshow",
+          "google-slideshow",
+          "snapchat-slideshow",
+          "gtm-slideshow",
+        ];
+
+        slideshowIds.forEach((id) => {
+          const slideshow = document.getElementById(id);
+          if (slideshow) {
+            // Ensure the first slide is active on load
+            const slides = slideshow.querySelectorAll(".slide");
+            if (slides.length > 0) {
+              slides.forEach((s) => s.classList.remove("active"));
+              slides[0].classList.add("active");
+            }
+          }
+        });
+      }
+
+      function changeSlide(slideshowId, direction) {
+        const slideshow = document.getElementById(slideshowId);
+        if (!slideshow) return;
+
+        const slides = slideshow.querySelectorAll(".slide");
+        let currentIndex = -1;
+
+        slides.forEach((slide, index) => {
+          if (slide.classList.contains("active")) {
+            currentIndex = index;
+          }
+        });
+
+        if (currentIndex !== -1) {
+          slides[currentIndex].classList.remove("active");
+
+          let newIndex = currentIndex + direction;
+          if (newIndex >= slides.length) newIndex = 0;
+          if (newIndex < 0) newIndex = slides.length - 1;
+
+          slides[newIndex].classList.add("active");
+        }
+      }
+
+      // Initialize on page load
+      document.addEventListener("DOMContentLoaded", () => {
+        initSlideshows();
+        document.getElementById("current-year").textContent =
+          new Date().getFullYear();
+
+        // Smooth scrolling for anchor links (Optimized)
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+            if (href.length > 1) {
+              e.preventDefault();
+              const target = document.querySelector(href);
+              if (target) {
+                target.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
